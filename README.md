@@ -12,6 +12,8 @@ Hand_sign:[hello, thanks, iloveyou, please, no, yes]
 ```
 ### Note:project setup:
 ```
-pip install -r requirements.txt
+run pip install -r requirements.txt
 run prediction.py
+COPY URL http://127.0.0.1:8000/docs
+click on try then execute
 ```
