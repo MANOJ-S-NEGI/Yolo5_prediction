@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #stopButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            background-color: #FF6F61; /* Change the button color to a red shade */
+            color: #FFF;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px; /* Add some space above the button */
+        }
+
+        #stopButton:hover {
+            background-color: #BA181B; /* Darken the background on hover */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-top: 50px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            background-color: #76D7C4;
+            color: #FFF;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #808081; /* Darken the background on hover */
+        }
+
+        fieldset {
+            text-align: center;
+            margin: auto;
+            max-width: 50%;
+            border: 2px solid #76D7C4;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        #imageBox {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend><h1> HAND SIGN DETECTION</h1></legend>
+            <form id="predictionForm" action="/predict" method="post">
+                <input type="submit" value="Start Prediction">
+            </form><br><br>
+
+            <button id="stopButton">Stop Prediction</button>
+
+
+
+                <div id="imageBox">
+
+                <img src="path_to_your_image.jpg" alt="Image Description">
+
+                </div>
+    </fieldset>
+
+    <script>
+        document.getElementById('predictionForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent the form from actually submitting
+
+            fetch('/predict', {
+                method: 'POST',
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data);
+            });
+        });
+
+        document.getElementById('stopButton').addEventListener('click', function() {
+            fetch('/stop', {
+                method: 'POST',
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data);
+            });
+        });
+    </script>
+</body>
+</html>

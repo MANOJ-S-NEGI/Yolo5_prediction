@@ -6,14 +6,14 @@ Dated:Aug_2023
 
 ## Project Description:
 ```
+
 Object detection Yolo5s trained on 6 hand handsign to detect and predict it. 
 
 Hand_sign:[hello, thanks, iloveyou, please, no, yes]
 ```
 ### Note:project setup:
 ```
+run prediction.py --> it will download the the yolo5 model and clone it to the current dir.
 run pip install -r requirements.txt
-run prediction.py
-COPY URL http://127.0.0.1:8000/docs if not worked try http://localhost:8080/docs
-click on prediction then try it out button then execute button
+run app.py
 ```

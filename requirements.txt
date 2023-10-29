@@ -48,6 +48,5 @@ setuptools>=65.5.1 # Snyk vulnerability fix
 # albumentations>=1.0.3
 # pycocotools>=2.0.6  # COCO mAP
 
-
-fastapi~=0.101.0
-uvicorn~=0.23.1
+flask
+gunicorn
